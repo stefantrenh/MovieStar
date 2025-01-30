@@ -1,0 +1,35 @@
+﻿@model MovieStar.Application.DTOs.OrderDto
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h2>Order Details</h2>
+
+<div>
+    <h4>Order ID: @Model.Id</h4>
+    <p><strong>Email:</strong> @Model.CustomerEmail</p>
+    <p><strong>Order Date:</strong> @Model.OrderDate</p>
+    <p><strong>Total:</strong> @Model.Total</p>
+
+    <h5>Ordered Products:</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderProducts)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
